@@ -3,14 +3,48 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Arsip: 2016/10 | FXAT&#39;s Blog</title>
+    <title>guideline-hexo | FXAT&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="FXAT's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2016/10/index.html">
+    <meta name="description" content="Cài đặt môi trường
+cài đặt nodejs
+
+cài đặt hexo
+
+
+1npm install hexo-cli -g
+
+clone blog source về máy từ github và cài đặt dependencies
+
+123git clone https://github.com/hieunh161/at-blog.gitcd &amp;#123;th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="guideline-hexo">
+<meta property="og:url" content="http://yoursite.com/2016/10/21/guideline-hexo/index.html">
 <meta property="og:site_name" content="FXAT's Blog">
+<meta property="og:description" content="Cài đặt môi trường
+cài đặt nodejs
+
+cài đặt hexo
+
+
+1npm install hexo-cli -g
+
+clone blog source về máy từ github và cài đặt dependencies
+
+123git clone https://github.com/hieunh161/at-blog.gitcd &amp;#123;th">
+<meta property="og:updated_time" content="2016-10-20T15:38:10.913Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FXAT's Blog">
+<meta name="twitter:title" content="guideline-hexo">
+<meta name="twitter:description" content="Cài đặt môi trường
+cài đặt nodejs
+
+cài đặt hexo
+
+
+1npm install hexo-cli -g
+
+clone blog source về máy từ github và cài đặt dependencies
+
+123git clone https://github.com/hieunh161/at-blog.gitcd &amp;#123;th">
     
 
     
@@ -177,25 +211,21 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-guideline-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/21/guideline-hexo/">guideline-hexo</a>
+        <h1 class="article-title" itemprop="name">
+            guideline-hexo
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2016/10/21/guideline-hexo/">
@@ -204,49 +234,152 @@
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/guideline-beggining/">guideline, beggining</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/20/hello-world/">Hospitality</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Cai-dat-moi-truong"><a href="#Cai-dat-moi-truong" class="headerlink" title="Cài đặt môi trường"></a>Cài đặt môi trường</h2><ol>
+<li><p>cài đặt <a href="https://nodejs.org/en/" target="_blank" rel="external">nodejs</a></p>
+</li>
+<li><p>cài đặt <a href="https://hexo.io" target="_blank" rel="external">hexo</a></p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<ol>
+<li>clone blog source về máy từ github và cài đặt dependencies</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/hieunh161/at-blog.git</div><div class="line"><span class="built_in">cd</span> &#123;thư mục <span class="built_in">source</span>&#125;</div><div class="line">npm install</div></pre></td></tr></table></figure>
+<ol>
+<li><p>Tạo bài viết mới bằng lệnh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &#123;thư mục <span class="built_in">source</span>&#125;</div><div class="line">hexo new post &#123;tên bài viết&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Vào thư mục source/_posts viết bài bằng markdown.<br>Có thể tham khảo markdown cheatsheet <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank" rel="external">ở đây</a></p>
+</li>
+<li><p>Commit source lên git sau đó deploy source lên server</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure></li>
+</ol>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/20/hello-world/">
-            <time datetime="2016-10-20T14:20:04.000Z" itemprop="datePublished">2016-10-20</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/soft-skill/">soft-skill</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://yoursite.com/2016/10/21/guideline-hexo/" data-id="ciuiikghr000048p97u9us6fa" class="article-share-link"><i class="fa fa-share"></i>Bagikan</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://yoursite.com/2016/10/21/guideline-hexo/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/10/21/guideline-hexo/">Komentar</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/10/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Lebih Tua</strong>
+            <div class="article-nav-title">Hospitality</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -362,11 +495,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'http://yoursite.com/2016/10/21/guideline-hexo/';
+        
+        this.page.identifier = 'guideline-hexo';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
