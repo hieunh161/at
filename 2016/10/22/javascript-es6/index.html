@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang=Vi>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Những điểm mới trong ES6 (Phần 1) | AT&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="TranspilersNếu bạn là tín đồ của javascript chắc hẳn bạn phải biết tới đặc tả tiêu chuẩn của javascript là ECMAScript. Hiện nay các phiên bản javascript chúng ta sử dụng hầu hết được viết dựa trên ECM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Những điểm mới trong ES6 (Phần 1)">
+<meta property="og:url" content="https://hieunh161.github.io/at/2016/10/22/javascript-es6/index.html">
+<meta property="og:site_name" content="AT's Blog">
+<meta property="og:description" content="TranspilersNếu bạn là tín đồ của javascript chắc hẳn bạn phải biết tới đặc tả tiêu chuẩn của javascript là ECMAScript. Hiện nay các phiên bản javascript chúng ta sử dụng hầu hết được viết dựa trên ECM">
+<meta property="og:updated_time" content="2016-10-22T04:22:12.158Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Những điểm mới trong ES6 (Phần 1)">
+<meta name="twitter:description" content="TranspilersNếu bạn là tín đồ của javascript chắc hẳn bạn phải biết tới đặc tả tiêu chuẩn của javascript là ECMAScript. Hiện nay các phiên bản javascript chúng ta sử dụng hầu hết được viết dựa trên ECM">
+    
+
+    
+
+    
+        <link rel="icon" href="/at/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/at/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/at/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/at/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/at/css/style.css">
+
+    <script src="/at/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/at/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/at/vendor/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/at/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">AT&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/at/.">Home</a>
+                
+                    <a class="main-nav-link" href="/at/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/at/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="https://www.gravatar.com/avatar/0c0152226431d58a0a6e489a28bc4151" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/at/',
+        CONTENT_URL: '/at/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/at/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/at/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/at/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/at/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="https://www.gravatar.com/avatar/0c0152226431d58a0a6e489a28bc4151?s=128" />
+            <h2 id="name">AT Team</h2>
+            <h3 id="title">Advance Technology Team</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>VietNam</span>
+            <a id="follow" target="_blank" href="https://github.com/hieunh161/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                3
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                4
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/hieunh161/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.facebook.com/hieunh161" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-javascript-es6" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Những điểm mới trong ES6 (Phần 1)
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/at/2016/10/22/javascript-es6/">
+            <time datetime="2016-10-22T03:29:38.000Z" itemprop="datePublished">2016-10-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/at/categories/memo/">memo</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/at/tags/es6/">es6</a>, <a class="tag-link" href="/at/tags/javascript/">javascript</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Transpilers"><a href="#Transpilers" class="headerlink" title="Transpilers"></a>Transpilers</h2><p>Nếu bạn là tín đồ của javascript chắc hẳn bạn phải biết tới đặc tả tiêu chuẩn của javascript là ECMAScript. Hiện nay các phiên bản javascript chúng ta sử dụng hầu hết được viết dựa trên ECMAScript version 5. Version 6 của ECMAScript đã ra đời với rất nhiều tính năng đáng chú ý, tuy nhiên chưa có nhiều trình duyệt hỗ trợ hoàn toàn phiên bản mới này. (Edge của Microsoft là một trong số ít các trình duyệt đi đầu hỗ trợ ES6). Để giải quyết vấn đề này cộng đồng đã cho ra đời một phương pháp giải quyết đó là transpiler.<br><a id="more"></a><br>Transpiler = Source to source compiler là công cụ cho phép sử dụng ES6 source biên dịch sang ES5 và chạy nó trên các trình duyệt. Hiện tại có 2 project liên quan tới transpiler đáng chú ý đó là: </p>
+<ul>
+<li><a href="https://github.com/google/traceur-compiler" target="_blank" rel="external">Traceur</a> Project của google</li>
+<li><a href="https://babeljs.io/" target="_blank" rel="external">Babeljs</a> Một project được viết bởi Sebastian McKenzie (17 tuổi tại thời điểm viết babel), với rất nhiều sự đóng góp từ cộng đồng.</li>
+</ul>
+<p>Do đó việc đầu tiên nếu chúng ta muốn bắt đầu một dự án dùng ES6 mà chạy trên các trình duyệt cũ hơn thì chúng ta cần quan tâm tới các công cụ transpiler này.</p>
+<h2 id="Let"><a href="#Let" class="headerlink" title="Let"></a>Let</h2><p>Biến var trong javascript khá rắc rối bởi vì javascript có một khái niệm gọi là hoisting. Nghĩa là biến thực tế sẽ được khai báo ở đàu hàm ngay cả khi chúng ta khai báo nó ở phía sau.<br>Ví dụ chúng ta khái báo biến name trong if block:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPonyFullName</span>(<span class="params">pony</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (pony.isChampion) &#123;</div><div class="line">    <span class="keyword">var</span> name = <span class="string">'Champion '</span> + pony.name;</div><div class="line">    <span class="keyword">return</span> name;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> pony.name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>nó sẽ không khác gì đoạn code dưới:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPonyFullName</span>(<span class="params">pony</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> name;</div><div class="line">  <span class="keyword">if</span> (pony.isChampion) &#123;</div><div class="line">    name = <span class="string">'Champion '</span> + pony.name;</div><div class="line">    <span class="keyword">return</span> name;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// name có thể được truy cập ở đây</span></div><div class="line">  <span class="keyword">return</span> pony.name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ES6 cung cấp một biến mà cho phép chúng ta khai báo đúng theo cách mà chúng ta muốn đó là <strong>let</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPonyFullName</span>(<span class="params">pony</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (pony.isChampion) &#123;</div><div class="line">    <span class="keyword">let</span> name = <span class="string">'Champion '</span> + pony.name;</div><div class="line">    <span class="keyword">return</span> name;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// name bây giờ không thể được truy cập từ bên ngoài</span></div><div class="line">  <span class="keyword">return</span> pony.name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Biến name bây giờ sẽ được giới hạn trong block của nó. Let được giới thiệu để thay thế var, vì thế trong hầu hết trường hợp chúng ta đều sử dụng được let. Nếu bạn không thể sử dụng let mà phải sử dụng var thì đó là một dấu hiệu cho thấy code bạn đang có vấn đề.</p>
+<h2 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h2><p>ES6 giới thiệu từ khóa const cho việc khai báo hằng số. Một khi chúng ta khai báo hằng số cho một đối tượng, chúng ta không thể gán lại giá trị cho nó sau này.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> poniesInRace = <span class="number">6</span>;</div><div class="line"></div><div class="line"><span class="comment">// later in somewhere</span></div><div class="line">poniesInRace = <span class="number">7</span>; <span class="comment">// SyntaxError</span></div></pre></td></tr></table></figure>
+<p>Một điều vô cùng đặc biệt liên quan tới const đó là khi khai báo một object là const thì mặc dù chúng ta không thể gán nó cho đối tượng khác, nhưng chúng ta vẫn có thể thay đổi giá trị nội dung của nó.<br>Ví dụ đoạn code sau sẽ lỗi:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> PONY = &#123;&#125;;</div><div class="line">PONY = &#123;<span class="attr">color</span>: <span class="string">'blue'</span>&#125;; <span class="comment">// SyntaxError</span></div></pre></td></tr></table></figure>
+<p>Nhưng đoạn code sau sẽ chạy:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> PONY = &#123;&#125;;</div><div class="line">PONY.color = <span class="string">'blue'</span>; <span class="comment">// works</span></div></pre></td></tr></table></figure>
+<p>Tương tự với array và các cấu trúc khác</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> PONIES = [];</div><div class="line">PONIES.push(&#123; <span class="attr">color</span>: <span class="string">'blue'</span> &#125;); <span class="comment">// works</span></div></pre></td></tr></table></figure>
+<h2 id="Tao-Object"><a href="#Tao-Object" class="headerlink" title="Tạo Object"></a>Tạo Object</h2><p>Việc tạo đối tượng trong ES6 sẽ đơn giản hơn so với ES5 khi đối tượng chúng ta muốn tạo có tên trùng với tên biến chúng ta muốn gán.<br>Ví dụ:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPony</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> name = <span class="string">'Rainbow Dash'</span>;</div><div class="line">  <span class="keyword">const</span> color = <span class="string">'blue'</span>;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">name</span>: name, <span class="attr">color</span>: color &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Đoạn code trên có thể đơn giản trở thành:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPony</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> name = <span class="string">'Rainbow Dash'</span>;</div><div class="line">  <span class="keyword">const</span> color = <span class="string">'blue'</span>;</div><div class="line">  <span class="keyword">return</span> &#123; name, color &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Destructuring-assignment"><a href="#Destructuring-assignment" class="headerlink" title="Destructuring assignment"></a>Destructuring assignment</h2><p>Trong ES5:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> httpOptions = &#123; <span class="attr">timeout</span>: <span class="number">2000</span>, <span class="attr">isCache</span>: <span class="literal">true</span> &#125;;</div><div class="line"><span class="comment">// later</span></div><div class="line"><span class="keyword">var</span> httpTimeout = httpOptions.timeout;</div><div class="line"><span class="keyword">var</span> httpCache = httpOptions.isCache;</div></pre></td></tr></table></figure>
+<p>Trong ES6 chúng ta có thể đơn giản:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> httpOptions = &#123; <span class="attr">timeout</span>: <span class="number">2000</span>, <span class="attr">isCache</span>: <span class="literal">true</span> &#125;;</div><div class="line"><span class="comment">// later</span></div><div class="line"><span class="keyword">const</span> &#123; <span class="attr">timeout</span>: httpTimeout, <span class="attr">isCache</span>: httpCache &#125; = httpOptions;</div></pre></td></tr></table></figure>
+<p>Nếu tên biến và tên của đối tượng trùng nhau nó có thể còn trở nên đơn giản hơn nữa:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> httpOptions = &#123; <span class="attr">timeout</span>: <span class="number">2000</span>, <span class="attr">isCache</span>: <span class="literal">true</span> &#125;;</div><div class="line"><span class="comment">// later</span></div><div class="line"><span class="keyword">const</span> &#123; timeout, isCache &#125; = httpOptions;</div><div class="line"><span class="comment">// Chúng ta có 2 biến timeout và isCache với giá trị từ httpOptions</span></div></pre></td></tr></table></figure>
+<p>Tương tự với mảng chúng ta có</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> timeouts = [<span class="number">1000</span>, <span class="number">2000</span>, <span class="number">3000</span>];</div><div class="line"><span class="comment">// later</span></div><div class="line"><span class="keyword">const</span> [shortTimeout, mediumTimeout] = timeouts;</div><div class="line"><span class="comment">// chúng ta có biến 'shortTimeout' = 1000 và 'mediumTimeout' = 2000</span></div></pre></td></tr></table></figure>
+<p>Từ trên chúng ta có thêm một tính năng rất thú vị của ES6 đó là kết quả trả về có thể là nhiều giá trị.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomPonyInRace</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> pony = &#123; <span class="attr">name</span>: <span class="string">'Rainbow Dash'</span> &#125;;</div><div class="line">  <span class="keyword">const</span> position = <span class="number">2</span>;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  <span class="keyword">return</span> &#123; pony, position &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> &#123; position, pony &#125; = randomPonyInRace();</div></pre></td></tr></table></figure>
+<p>Trong trường hợp chúng ta chỉ muốn lấy một giá trị chúng ta sử dụng Destructuring để lấy:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomPonyInRace</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> pony = &#123; <span class="attr">name</span>: <span class="string">'Rainbow Dash'</span> &#125;;</div><div class="line">  <span class="keyword">const</span> position = <span class="number">2</span>;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  <span class="keyword">return</span> &#123; pony, position &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> &#123; pony &#125; = randomPonyInRace();</div></pre></td></tr></table></figure>
+<p>Kết quả chúng ta sẽ chỉ lấy giá trị pony</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://hieunh161.github.io/at/at/2016/10/22/javascript-es6/" data-id="ciukncv4f000bcop9kdd6ikxd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://hieunh161.github.io/at/at/2016/10/22/javascript-es6/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/at/2016/10/22/javascript-es6/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/at/2016/10/21/guideline-hexo/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Hướng dẫn viết blog</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/at/2016/10/22/javascript-es6/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/at/categories/memo/">memo</a></p>
+                            <p class="item-title"><a href="/at/2016/10/22/javascript-es6/" class="title">Những điểm mới trong ES6 (Phần 1)</a></p>
+                            <p class="item-date"><time datetime="2016-10-22T03:29:38.000Z" itemprop="datePublished">2016-10-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/at/2016/10/21/guideline-hexo/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/at/2016/10/21/guideline-hexo/" class="title">Hướng dẫn viết blog</a></p>
+                            <p class="item-date"><time datetime="2016-10-20T15:20:04.000Z" itemprop="datePublished">2016-10-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/at/2016/10/20/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/at/categories/social/">social</a></p>
+                            <p class="item-title"><a href="/at/2016/10/20/hello-world/" class="title">Hospitality</a></p>
+                            <p class="item-date"><time datetime="2016-10-20T14:20:04.000Z" itemprop="datePublished">2016-10-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/at/categories/memo/">memo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/social/">social</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/at/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/guideline/">guideline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/soft-skill/">soft-skill</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/at/tags/es6/" style="font-size: 10px;">es6</a> <a href="/at/tags/guideline/" style="font-size: 10px;">guideline</a> <a href="/at/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/at/tags/soft-skill/" style="font-size: 10px;">soft-skill</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 AT Team<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://hieunh161.github.io/at/at/2016/10/22/javascript-es6/';
+        
+        this.page.identifier = 'javascript-es6';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'atblog-1' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/at/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/at/vendor/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/at/js/main.js"></script>
+
+    </div>
+</body>
+</html>
