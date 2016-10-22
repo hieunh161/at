@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>AT&#39;s Blog</title>
+    <title>AT Team</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta property="og:type" content="website">
-<meta property="og:title" content="AT's Blog">
-<meta property="og:url" content="https://hieunh161.github.io/at/index.html">
-<meta property="og:site_name" content="AT's Blog">
+<meta property="og:title" content="AT Team">
+<meta property="og:url" content="https://hieunh161.github.io/index.html">
+<meta property="og:site_name" content="AT Team">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AT's Blog">
+<meta name="twitter:title" content="AT Team">
     
 
     
 
     
-        <link rel="icon" href="/at/images/favicon.ico" />
+        <link rel="icon" href="/at/css/images/favicon.ico" />
     
 
     <link rel="stylesheet" href="/at/vendor/font-awesome/css/font-awesome.min.css">
@@ -35,7 +35,6 @@
     
     
     
-    
 
 
 </head>
@@ -47,7 +46,7 @@
         <div class="outer">
             <a href="/at/" id="logo">
                 <i class="logo"></i>
-                <span class="site-title">AT&#39;s Blog</span>
+                <span class="site-title">AT Team</span>
             </a>
             <nav id="main-nav">
                 
@@ -145,7 +144,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                3
+                4
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -180,6 +179,138 @@
 
             
             <section id="main">
+    <article id="post-javascript-es6-2" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/at/2016/10/22/javascript-es6-2/">Những điểm mới trong ES6 (Phần 2)</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/at/2016/10/22/javascript-es6-2/">
+            <time datetime="2016-10-22T09:55:40.000Z" itemprop="datePublished">2016-10-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/at/categories/memo/">memo</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/at/tags/es6/">es6</a>, <a class="tag-link" href="/at/tags/javascript/">javascript</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>Một trong những tính năng được mong chờ nhất trong javascript chính là class. Mặc dù trên ES5 chúng ta có thể tạo được class, tuy nhiên đó là một cách không dễ dàng đối với những người mới bắt đầu code javascript. Với ES6 mọi thứ trở nên rất dễ dàng:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pony</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(color) &#123;</div><div class="line">    <span class="keyword">this</span>.color = color;</div><div class="line">  &#125;</div><div class="line">  toString() &#123;</div><div class="line">     <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.color&#125;</span> pony`</span>;</div><div class="line">      <span class="comment">// 'template literals' là một tính năng rất hay khác nữa trong ES6</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> bluePony = <span class="keyword">new</span> Pony(<span class="string">'blue'</span>);</div><div class="line"><span class="built_in">console</span>.log(bluePony.toString()); <span class="comment">// blue pony</span></div></pre></td></tr></table></figure></p>
+            <p class="article-more-link">
+                <a href="/at/2016/10/22/javascript-es6-2/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+</div>
+
+    <a data-url="https://hieunh161.github.io/at/2016/10/22/javascript-es6-2/" data-id="ciul18ll80005a0p906p68w9i" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '/at" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://hieunh161.github.io/at/2016/10/22/javascript-es6-2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/2016/10/22/javascript-es6-2/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-javascript-es6" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -231,11 +362,9 @@
         <footer class="article-footer">
             <div class="share-container">
 
-
-
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/at/2016/10/22/javascript-es6/" data-id="ciukpdimm0005wwp9ej324q3u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/2016/10/22/javascript-es6/" data-id="ciul18llb0006a0p9i5ue86g3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -269,7 +398,7 @@
                         '<input class="article-share-input" value="' + url + '">',
                         '<div class="article-share-links">',
                             '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '/at" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
                             '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
                             '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
                         '</div>',
@@ -303,7 +432,7 @@
 
             
     
-        <a href="https://hieunh161.github.io/at/at/2016/10/22/javascript-es6/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/at/2016/10/22/javascript-es6/">Comments</a>
+        <a href="https://hieunh161.github.io/at/2016/10/22/javascript-es6/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/2016/10/22/javascript-es6/">Comments</a>
     
 
         </footer>
@@ -337,6 +466,11 @@
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/at/categories/guideline/">guideline</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -366,11 +500,9 @@
         <footer class="article-footer">
             <div class="share-container">
 
-
-
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/at/2016/10/21/guideline-hexo/" data-id="ciukpdimg0002wwp98jm4m7ob" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/2016/10/21/guideline-hexo/" data-id="ciul18lks0000a0p9owe0gkqb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -404,7 +536,7 @@
                         '<input class="article-share-input" value="' + url + '">',
                         '<div class="article-share-links">',
                             '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '/at" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
                             '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
                             '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
                         '</div>',
@@ -438,7 +570,7 @@
 
             
     
-        <a href="https://hieunh161.github.io/at/at/2016/10/21/guideline-hexo/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/at/2016/10/21/guideline-hexo/">Comments</a>
+        <a href="https://hieunh161.github.io/at/2016/10/21/guideline-hexo/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/2016/10/21/guideline-hexo/">Comments</a>
     
 
         </footer>
@@ -448,7 +580,7 @@
 
 
 
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hospitality" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -456,7 +588,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/at/2016/10/20/hello-world/">Hospitality</a>
+            <a class="article-title" href="/at/2016/10/20/hospitality/">Hospitality</a>
         </h1>
     
 
@@ -465,7 +597,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/at/2016/10/20/hello-world/">
+        <a href="/at/2016/10/20/hospitality/">
             <time datetime="2016-10-20T14:20:04.000Z" itemprop="datePublished">2016-10-20</time>
         </a>
     </div>
@@ -492,18 +624,16 @@
         
             <p><h2 id="1-Hospitality-la-gi"><a href="#1-Hospitality-la-gi" class="headerlink" title="1. Hospitality là gì?"></a>1. Hospitality là gì?</h2><p>Hospitality là một từ xuất hiện ở Anh từ khoảng năm 1325 – 1375. Theo từ điển thì nó có nghĩa là việc đối xử một cách thân thiện, tử tế của một người chủ với một người khách hoặc một người lạ nào đó. Ví dụ như câu give a person a hospitality. Nó là một danh từ đếm được, nghĩa là có thể có nhiều hospitalities, tức là có nhiều hành động tử tế. Khi nó du nhập vào Nhật thì người Nhật chấp nhận từ đó với ý nghĩa là nghĩ cho người khác, làm những điều vì người khác, hay đối xử với người khác từ trái tim mình đúng như văn hóa của người Nhật. Và đặc biệt từ này đã trở thành một từ như chỉ về các dịch vụ đặc biệt làm hài lòng khách hàng trong kinh doanh. Khi nói về việc làm một hospitality cho một người nào khác thì người Nhật hiểu rằng hành động đó không chỉ là vì đối phương mà nó còn hàm chứa cả tấm lòng của người thực hiện hành động.</p></p>
             <p class="article-more-link">
-                <a href="/at/2016/10/20/hello-world/#more">Read More</a>
+                <a href="/at/2016/10/20/hospitality/#more">Read More</a>
             </p>
         
         </div>
         <footer class="article-footer">
             <div class="share-container">
 
-
-
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/at/2016/10/20/hello-world/" data-id="ciukpdim90000wwp9mh2j35fd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/2016/10/20/hospitality/" data-id="ciul18ll00002a0p9kkst3h3e" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -537,7 +667,7 @@
                         '<input class="article-share-input" value="' + url + '">',
                         '<div class="article-share-links">',
                             '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '/at" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
                             '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
                             '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
                         '</div>',
@@ -571,7 +701,7 @@
 
             
     
-        <a href="https://hieunh161.github.io/at/at/2016/10/20/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/at/2016/10/20/hello-world/">Comments</a>
+        <a href="https://hieunh161.github.io/at/2016/10/20/hospitality/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/2016/10/20/hospitality/">Comments</a>
     
 
         </footer>
@@ -589,6 +719,25 @@
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/at/2016/10/22/javascript-es6-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../css/images/thumbnail/es6.jpeg)" alt="Những điểm mới trong ES6 (Phần 2)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/at/categories/memo/">memo</a></p>
+                            <p class="item-title"><a href="/at/2016/10/22/javascript-es6-2/" class="title">Những điểm mới trong ES6 (Phần 2)</a></p>
+                            <p class="item-date"><time datetime="2016-10-22T09:55:40.000Z" itemprop="datePublished">2016-10-22</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -622,7 +771,7 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/at/categories/guideline/">guideline</a></p>
                             <p class="item-title"><a href="/at/2016/10/21/guideline-hexo/" class="title">Hướng dẫn viết blog</a></p>
                             <p class="item-date"><time datetime="2016-10-20T15:20:04.000Z" itemprop="datePublished">2016-10-21</time></p>
                         </div>
@@ -631,7 +780,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/at/2016/10/20/hello-world/" class="thumbnail">
+                            <a href="/at/2016/10/20/hospitality/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -642,7 +791,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/at/categories/social/">social</a></p>
-                            <p class="item-title"><a href="/at/2016/10/20/hello-world/" class="title">Hospitality</a></p>
+                            <p class="item-title"><a href="/at/2016/10/20/hospitality/" class="title">Hospitality</a></p>
                             <p class="item-date"><time datetime="2016-10-20T14:20:04.000Z" itemprop="datePublished">2016-10-20</time></p>
                         </div>
                     </li>
@@ -656,7 +805,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/at/categories/memo/">memo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/social/">social</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/at/categories/guideline/">guideline</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/memo/">memo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/social/">social</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -665,7 +814,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/at/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/at/archives/2016/10/">October 2016</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -674,7 +823,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/guideline/">guideline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/soft-skill/">soft-skill</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/es6/">es6</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/guideline/">guideline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/javascript/">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/soft-skill/">soft-skill</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -683,7 +832,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/at/tags/es6/" style="font-size: 10px;">es6</a> <a href="/at/tags/guideline/" style="font-size: 10px;">guideline</a> <a href="/at/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/at/tags/soft-skill/" style="font-size: 10px;">soft-skill</a>
+            <a href="/at/tags/es6/" style="font-size: 20px;">es6</a> <a href="/at/tags/guideline/" style="font-size: 10px;">guideline</a> <a href="/at/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/at/tags/soft-skill/" style="font-size: 10px;">soft-skill</a>
         </div>
     </div>
 
@@ -708,7 +857,7 @@
     <div class="outer">
         <div id="footer-info" class="inner">
             &copy; 2016 AT Team<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            Powered by <a href="" target="_blank">AT Team</a>. Written by <a href="http://github.com/hieunh161">PPOffice</a>
         </div>
     </div>
 </footer>

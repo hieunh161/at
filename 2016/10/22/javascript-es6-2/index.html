@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang=Vi>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Những điểm mới trong ES6 (Phần 2) | AT Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="ClassMột trong những tính năng được mong chờ nhất trong javascript chính là class. Mặc dù trên ES5 chúng ta có thể tạo được class, tuy nhiên đó là một cách không dễ dàng đối với những người mới bắt đầ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Những điểm mới trong ES6 (Phần 2)">
+<meta property="og:url" content="https://hieunh161.github.io/2016/10/22/javascript-es6-2/index.html">
+<meta property="og:site_name" content="AT Team">
+<meta property="og:description" content="ClassMột trong những tính năng được mong chờ nhất trong javascript chính là class. Mặc dù trên ES5 chúng ta có thể tạo được class, tuy nhiên đó là một cách không dễ dàng đối với những người mới bắt đầ">
+<meta property="og:image" content="https://hieunh161.github.io/../../../../css/images/thumbnail/es6.jpeg">
+<meta property="og:updated_time" content="2016-10-22T13:05:28.121Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Những điểm mới trong ES6 (Phần 2)">
+<meta name="twitter:description" content="ClassMột trong những tính năng được mong chờ nhất trong javascript chính là class. Mặc dù trên ES5 chúng ta có thể tạo được class, tuy nhiên đó là một cách không dễ dàng đối với những người mới bắt đầ">
+<meta name="twitter:image" content="https://hieunh161.github.io/../../../../css/images/thumbnail/es6.jpeg">
+    
+
+    
+
+    
+        <link rel="icon" href="/at/css/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/at/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/at/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/at/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/at/css/style.css">
+
+    <script src="/at/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/at/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/at/vendor/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/at/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">AT Team</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/at/.">Home</a>
+                
+                    <a class="main-nav-link" href="/at/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/at/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="https://www.gravatar.com/avatar/0c0152226431d58a0a6e489a28bc4151" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/at/',
+        CONTENT_URL: '/at/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/at/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/at/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/at/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/at/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="https://www.gravatar.com/avatar/0c0152226431d58a0a6e489a28bc4151?s=128" />
+            <h2 id="name">AT Team</h2>
+            <h3 id="title">Advance Technology Team</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>VietNam</span>
+            <a id="follow" target="_blank" href="https://github.com/hieunh161/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                4
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                4
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/hieunh161/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.facebook.com/hieunh161" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-javascript-es6-2" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Những điểm mới trong ES6 (Phần 2)
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/at/2016/10/22/javascript-es6-2/">
+            <time datetime="2016-10-22T09:55:40.000Z" itemprop="datePublished">2016-10-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/at/categories/memo/">memo</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/at/tags/es6/">es6</a>, <a class="tag-link" href="/at/tags/javascript/">javascript</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>Một trong những tính năng được mong chờ nhất trong javascript chính là class. Mặc dù trên ES5 chúng ta có thể tạo được class, tuy nhiên đó là một cách không dễ dàng đối với những người mới bắt đầu code javascript. Với ES6 mọi thứ trở nên rất dễ dàng:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pony</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(color) &#123;</div><div class="line">    <span class="keyword">this</span>.color = color;</div><div class="line">  &#125;</div><div class="line">  toString() &#123;</div><div class="line">     <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.color&#125;</span> pony`</span>;</div><div class="line">      <span class="comment">// 'template literals' là một tính năng rất hay khác nữa trong ES6</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> bluePony = <span class="keyword">new</span> Pony(<span class="string">'blue'</span>);</div><div class="line"><span class="built_in">console</span>.log(bluePony.toString()); <span class="comment">// blue pony</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>class trong javascript không giống biến var, khi chúng ta bắt buộc phải khai báo nó trước khi sử dụng. Bạn sẽ nhận ra hàm rất đặc biệt là constructor. Hàm này sẽ được gọi khi chúng ta dùng toán tử new để khởi tạo đối tượng.<br>Tương tự như các ngôn ngữ khác, ES6 cho phép khai báo static bên trong class. Với hàm hoặc thuộc tính được khai báo static, chúng ta có thể truy cập trực tiếp mà không cần khởi tạo đối tượng.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pony</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> defaultSpeed() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">10</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> speed = Pony.defaultSpeed();</div></pre></td></tr></table></figure>
+<p>Nếu bạn là tín đồ của hướng đối tượng, chắc chắn bạn sẽ mong muốn các tính năng khác như set, get, kế thừa … ES6 cung cấp đầy đủ điều đó. Khi chúng ta muốn get/set:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pony</span> </span>&#123;</div><div class="line">  get color() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'get color'</span>);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._color;</div><div class="line">  &#125;</div><div class="line">  set color(newColor) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`set color <span class="subst">$&#123;newColor&#125;</span>`</span>);</div><div class="line">    <span class="keyword">this</span>._color = newColor;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> pony = <span class="keyword">new</span> Pony();</div><div class="line">pony.color = <span class="string">'red'</span>;</div><div class="line"><span class="comment">// 'set color red'</span></div><div class="line"><span class="built_in">console</span>.log(pony.color);</div><div class="line"><span class="comment">// 'get color'</span></div><div class="line"><span class="comment">// 'red'</span></div></pre></td></tr></table></figure>
+<p>Kế thừa trong ES6 như sau:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">  speed() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">10</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pony</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> pony = <span class="keyword">new</span> Pony();</div><div class="line"><span class="built_in">console</span>.log(pony.speed()); <span class="comment">// 10, as Pony kế thừa method lớp cha</span></div></pre></td></tr></table></figure>
+<p>Bạn có thể override method cha như bất kỳ ngôn ngữ hướng đối tượng thông thường nào khác.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">  speed() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">10</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pony</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">  speed() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.speed() + <span class="number">10</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> pony = <span class="keyword">new</span> Pony();</div><div class="line"><span class="built_in">console</span>.log(pony.speed()); <span class="comment">// 20, as Pony overrides the parent method</span></div></pre></td></tr></table></figure>
+<p>Javascript có vẻ đã trở nên rất giống Java khi chúng ta cũng có thể sử dụng từ khóa super để gọi các hàm của lớp cha. </p>
+<h2 id="Promises"><a href="#Promises" class="headerlink" title="Promises"></a>Promises</h2><p>Promise không phải tính năng quá mới mẻ, nó đã có trong Angular1 và nếu bạn đã từng code Angular2 thì chắc không quá xa lạ với khái niệm này.<br>Mục đích của Promise là làm đơn giản việc lập trình không đồng bộ (Asynchronous). Chúng ta thường sử dụng callback để xử lý kết quả trả về trong ES5 khi muốn thực hiện sử lý không đồng bộ như AJAX. Promise giúp chúng ta làm phẳng code, dễ dàng trong việc đọc và bảo trì code hơn. Hãy xem ví dụ sau khi thực hiện với callback và với Promise.</p>
+<p>Với callback:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">getUser(login, <span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</div><div class="line">  getRights(user, <span class="function"><span class="keyword">function</span> (<span class="params">rights</span>) </span>&#123;</div><div class="line">    updateMenu(rights);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Với Promise:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">getUser(login)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> getRights(user);</div><div class="line">  &#125;)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">rights</span>) </span>&#123;</div><div class="line">    updateMenu(rights);</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<p>Mặc định Promise có thể hiểu là một đối tượng <strong><em>thenable</em></strong> nghĩa là nó có hàm <em>then</em> . Hàm này sẽ nhận hai tham số, một xử lý khi thành công và một cho thất bại. Promise có 3 thành phần sau:</p>
+<ul>
+<li>pending: Khi promise chưa hoàn thành</li>
+<li>fulfilled: Khi promise thực hiện thành công</li>
+<li>rejected: Khi promise thực hiện thất bại</li>
+</ul>
+<p>Khi promise được fulfilled thì hàm success sẽ được gọi, và ngược lại khi rejected thì hàm xử lý lỗi sẽ được gọi.<br>Vậy làm thế nào để gọi Promise? Chúng ta chỉ đơn giản khởi tạo một đối tượng có tên Promise. Hàm này sẽ nhận 2 tham số callback như đã nói ở trên, một cho thành công, một cho thất bại.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> getUser = <span class="function"><span class="keyword">function</span> (<span class="params">login</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">      <span class="comment">// async stuff, like fetching users from server, returning a response</span></div><div class="line">      <span class="keyword">if</span> (response.status === <span class="number">200</span>) &#123;</div><div class="line">        resolve(response.data);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        reject(<span class="string">'No user'</span>);</div><div class="line">      &#125;</div><div class="line">  &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>Khi khai báo như trên xong chúng ta có thể sử dụng getUser với hàm then. Trong trường hợp chỉ muốn xử lý thành công chúng ta có thể bỏ qua biến reject như dưới.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">getUser(login)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(user);</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<p>Điểm hay của Promise như đã nói ở trên đó là nó làm phẳng code của chúng ta. Trong trường hợp chúng ta có nhiều callback lồng nhau thông thường chúng ta có thể viết:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">getUser(login)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> getRights(user) <span class="comment">// getRights is returning a promise</span></div><div class="line">      .then(<span class="function"><span class="keyword">function</span> (<span class="params">rights</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> updateMenu(rights);</div><div class="line">      &#125;);</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<p>Nhưng với promise chúng ta có thể viết một cách đẹp đẽ hơn thế.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">getUser(login)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> getRights(user) <span class="comment">// getRights is returning a promise</span></div><div class="line">  &#125;)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">rights</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> updateMenu(rights);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>Một điểm thú vị nữa đó là hàm xử lý lỗi, chúng ta có thể viết riêng cho từng promise, nhưng cũng có thể gộp chung cho một chuỗi promise như sau:<br>Xử lý lỗi cho từng promise</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">getUser(login)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> getRights(user);</div><div class="line">  &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(error); <span class="comment">// xử lý cho getUser failed</span></div><div class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</div><div class="line">  &#125;)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">rights</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> updateMenu(rights);</div><div class="line">  &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(error); <span class="comment">// xử lý cho getRights failed</span></div><div class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<p>Xử lý lỗi chung có các promise với catch</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">getUser(login)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> getRights(user);</div><div class="line">  &#125;)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">rights</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> updateMenu(rights);</div><div class="line">  &#125;)</div><div class="line">  .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error); <span class="comment">// Xử lý lỗi chung khi có một xử lý trong chuỗi lỗi</span></div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<h2 id="Arrow-functions"><a href="#Arrow-functions" class="headerlink" title="Arrow functions"></a>Arrow functions</h2><p>Đây là một trong những tính năng cá nhân mình thích nhất của ES6. Sử dụng hàm mũi tên sẽ vô cùng tiện dụng trong nhiều trường hợp. Quay trở lại với ví dụ về Promise phía trên ta có:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">getUser(login)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> getRights(user); <span class="comment">// getRights is returning a promise</span></div><div class="line">  &#125;)</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">rights</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> updateMenu(rights);</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<p>Khi sử dụng cú pháp arrow chúng ta có thể viết lại như sau:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">getUser(login)</div><div class="line">  .then(<span class="function"><span class="params">user</span> =&gt;</span> <span class="keyword">return</span> getRights(user))<span class="comment">// getRights is returning a promise</span></div><div class="line">  .then(<span class="function"><span class="params">rights</span> =&gt;</span> <span class="keyword">return</span> updateMenu(rights))</div></pre></td></tr></table></figure>
+<p>Rất đẹp phải không nào.<br>Tôi đã không nói nên lời khi lần đầu tiên sử dụng cú pháp này trong dự án của mình. Bởi vì nó làm cho code trở nên vô cùng đẹp. Chúng ta phải chú ý là khi giá trị trả về là một block code chúng ta cần có ngoặc đơn như sau:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">getUser(login)</div><div class="line">  .then(<span class="function"><span class="params">user</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(user);</div><div class="line">    <span class="keyword">return</span> getRights(user);</div><div class="line">  &#125;)</div><div class="line">  .then(<span class="function"><span class="params">rights</span> =&gt;</span> updateMenu(rights))</div></pre></td></tr></table></figure>
+<p>Cú pháp arrow không chỉ giúp cho việc code trở nên đơn giản hơn mà nó còn có một đặc điểm rất quan trọng sau.<br>Lấy ví dụ đoạn code sau:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> maxFinder = &#123;</div><div class="line">  <span class="attr">max</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">find</span>: <span class="function"><span class="keyword">function</span> (<span class="params">numbers</span>) </span>&#123;</div><div class="line">  <span class="comment">// let's iterate</span></div><div class="line">  numbers.forEach(</div><div class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</div><div class="line">          <span class="comment">// if the element is greater, set it as the max</span></div><div class="line">          <span class="keyword">if</span> (element &gt; <span class="keyword">this</span>.max) &#123;</div><div class="line">            <span class="keyword">this</span>.max = element;</div><div class="line">          &#125;</div><div class="line">      &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">maxFinder.find([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]);</div><div class="line"><span class="comment">// log the result</span></div><div class="line"><span class="built_in">console</span>.log(maxFinder.max);</div></pre></td></tr></table></figure>
+<p>Đoạn code trên sẽ không chạy như bạn mong đợi. Bởi vì this trong javascript sẽ trỏ tới đối tượng đang được tương tác.Tuy nhiên trong trường hợp này khi sử dụng hàm anonymous trong hàm forEach thì biến this sẽ được trỏ tới Window. Tất nhiên chúng ta có thể fix vấn đề này một cách đơn giản bằng việc gán lại biến this cho một biến khác để đảm bảo trỏ đúng tới đối tượng mong muôn:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> maxFinder = &#123;</div><div class="line">  <span class="attr">max</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">find</span>: <span class="function"><span class="keyword">function</span> (<span class="params">numbers</span>) </span>&#123;</div><div class="line">  <span class="comment">// let's iterate</span></div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">  numbers.forEach(</div><div class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</div><div class="line">          <span class="comment">// if the element is greater, set it as the max</span></div><div class="line">          <span class="keyword">if</span> (element &gt; self.max) &#123;</div><div class="line">            self.max = element;</div><div class="line">          &#125;</div><div class="line">      &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">maxFinder.find([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]);</div><div class="line"><span class="comment">// log the result</span></div><div class="line"><span class="built_in">console</span>.log(maxFinder.max);</div></pre></td></tr></table></figure>
+<p>Hoặc có thể sử dụng hàm bind để gắn con trỏ this vào.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> maxFinder = &#123;</div><div class="line">  <span class="attr">max</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">find</span>: <span class="function"><span class="keyword">function</span> (<span class="params">numbers</span>) </span>&#123;</div><div class="line">  <span class="comment">// let's iterate</span></div><div class="line">  numbers.forEach(</div><div class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</div><div class="line">          <span class="comment">// if the element is greater, set it as the max</span></div><div class="line">          <span class="keyword">if</span> (element &gt; <span class="keyword">this</span>.max) &#123;</div><div class="line">            <span class="keyword">this</span>.max = element;</div><div class="line">          &#125;</div><div class="line">      &#125;.bind(<span class="keyword">this</span>));</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">maxFinder.find([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]);</div><div class="line"><span class="comment">// log the result</span></div><div class="line"><span class="built_in">console</span>.log(maxFinder.max);</div></pre></td></tr></table></figure>
+<p>Thậm chí có thể truyền trực tiếp biến this như một tham số thứ 2 cho hàm forEach</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> maxFinder = &#123;</div><div class="line">  <span class="attr">max</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">find</span>: <span class="function"><span class="keyword">function</span> (<span class="params">numbers</span>) </span>&#123;</div><div class="line">  <span class="comment">// let's iterate</span></div><div class="line">  numbers.forEach(</div><div class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</div><div class="line">          <span class="comment">// if the element is greater, set it as the max</span></div><div class="line">          <span class="keyword">if</span> (element &gt; <span class="keyword">this</span>.max) &#123;</div><div class="line">            <span class="keyword">this</span>.max = element;</div><div class="line">          &#125;</div><div class="line">      &#125;, <span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">maxFinder.find([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]);</div><div class="line"><span class="comment">// log the result</span></div><div class="line"><span class="built_in">console</span>.log(maxFinder.max);</div></pre></td></tr></table></figure>
+<p>Với ES6 mọi thứ trở nên dễ dàng hơn với arrow function:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> maxFinder = &#123;</div><div class="line">  <span class="attr">max</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">find</span>: <span class="function"><span class="keyword">function</span> (<span class="params">numbers</span>) </span>&#123;</div><div class="line">      numbers.forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</div><div class="line">          <span class="keyword">if</span> (element &gt; <span class="keyword">this</span>.max) &#123;</div><div class="line">            <span class="keyword">this</span>.max = element;</div><div class="line">          &#125;</div><div class="line">      &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">maxFinder.find([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]);</div><div class="line"><span class="comment">// log the result</span></div><div class="line"><span class="built_in">console</span>.log(maxFinder.max);</div></pre></td></tr></table></figure>
+<h2 id="Sets-and-Maps"><a href="#Sets-and-Maps" class="headerlink" title="Sets and Maps"></a>Sets and Maps</h2><p>Với ES6 chúng ta có thêm các kiểu dữ liệu collection là Set và Map. Bạn nào từng làm Java sẽ thích điều này. Ví dụ về Map:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> cedric = &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'Cedric'</span> &#125;;</div><div class="line"><span class="keyword">const</span> users = <span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line">users.set(cedric.id, cedric); <span class="comment">// adds a user</span></div><div class="line"><span class="built_in">console</span>.log(users.has(cedric.id)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(users.size); <span class="comment">// 1</span></div><div class="line">users.delete(cedric.id); <span class="comment">// removes the user</span></div></pre></td></tr></table></figure>
+<p>Ví dụ về Set</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> cedric = &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'Cedric'</span> &#125;;</div><div class="line"><span class="keyword">const</span> users = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line">users.add(cedric); <span class="comment">// adds a user</span></div><div class="line"><span class="built_in">console</span>.log(users.has(cedric)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(users.size); <span class="comment">// 1</span></div><div class="line">users.delete(cedric); <span class="comment">// removes the user</span></div></pre></td></tr></table></figure>
+<p>Cuối cùng như bao collection khác, chúng ta có thể loop thông qua for … of</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> user <span class="keyword">of</span> users) &#123;</div><div class="line">  <span class="built_in">console</span>.log(user.name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Template-literals"><a href="#Template-literals" class="headerlink" title="Template literals"></a>Template literals</h2><p>Nối string luôn là một chuyện rườm rà trong javascript. Chúng ta thông thường sẽ làm:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fullname = <span class="string">'Miss '</span> + firstname + <span class="string">' '</span> + lastname;</div></pre></td></tr></table></figure>
+<p>Nhưng với chức năng template literal thì mọi chuyện sẽ trở nên dễ dàng hơn nhiều</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fullname = <span class="string">`Miss <span class="subst">$&#123;firstname&#125;</span> <span class="subst">$&#123;lastname&#125;</span>`</span>;</div></pre></td></tr></table></figure>
+<p>Và thậm chí nó còn trở nên hữu ích hơn rất nhiều khi nó hỗ trợ chức năng multi line.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> template = <span class="string">`&lt;div&gt;</span></div><div class="line">  &lt;h1&gt;Hello&lt;/h1&gt;</div><div class="line">&lt;/div&gt;`;</div></pre></td></tr></table></figure>
+<h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h2><p>Module là một chức năng còn thiếu của javascript cho tới ES5. Khi chúng ta muốn tổ chức code, chúng ta đều phải sử dụng các third party như <a href="http://requirejs.org/" target="_blank" rel="external">RequireJs</a>.<br>ES6 cung cấp thêm chức năng module và các cú pháp cho phép chúng ta import/export thông tin từ các modules. Mặc định mỗi file là một module riêng biệt trong ES6. </p>
+<p>File races_service.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">bet</span>(<span class="params">race, pony</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params">race</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Với từ khóa export chúng ta export 2 hàm, và ở một file khác:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; bet, start &#125; <span class="keyword">from</span> <span class="string">'./races_service'</span>;</div><div class="line"><span class="comment">// chúng ta có thể dùng</span></div><div class="line">bet(race, pony1);</div><div class="line">start(race);</div></pre></td></tr></table></figure>
+<p>Ngoài ra chúng ta có thể import tất cả các thành phần export bằng lệnh</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> racesService <span class="keyword">from</span> <span class="string">'./races_service'</span>;</div><div class="line"><span class="comment">// chúng ta có thể dùng</span></div><div class="line">racesService.bet(race, pony1);</div><div class="line">racesService.start(race);</div></pre></td></tr></table></figure>
+<p>Nếu module chỉ export một function, class thì chúng ta có thể sử dụng keyword default như sau</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// pony.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Pony</span> </span>&#123;</div><div class="line">&#125;</div><div class="line"><span class="comment">// races_service.js</span></div><div class="line"><span class="keyword">import</span> Pony <span class="keyword">from</span> <span class="string">'./pony'</span>;</div></pre></td></tr></table></figure>
+<p>Chú ý khi import với keyword default chúng ta không cần dấu ngoặc đơn nữa. Chú ý một module chỉ cho phép một default keyword.</p>
+<h2 id="Ket-luan"><a href="#Ket-luan" class="headerlink" title="Kết luận"></a>Kết luận</h2><p>Đây chỉ là tóm tắt những điểm cơ bản. ES6 còn rất nhiều điểm thú vị bên trong. Bạn có thể đọc thêm ở một số link sau:</p>
+<ul>
+<li><a href="https://leanpub.com/understandinges6" target="_blank" rel="external">Understanding ECMAScript 6</a></li>
+<li><a href="http://exploringjs.com/" target="_blank" rel="external">exploringjs</a></li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+</div>
+
+    <a data-url="https://hieunh161.github.io/at/2016/10/22/javascript-es6-2/" data-id="ciul18ll80005a0p906p68w9i" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '/at" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://hieunh161.github.io/at/2016/10/22/javascript-es6-2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/2016/10/22/javascript-es6-2/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/at/2016/10/22/javascript-es6/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Những điểm mới trong ES6 (Phần 1)</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/at/2016/10/22/javascript-es6-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../css/images/thumbnail/es6.jpeg)" alt="Những điểm mới trong ES6 (Phần 2)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/at/categories/memo/">memo</a></p>
+                            <p class="item-title"><a href="/at/2016/10/22/javascript-es6-2/" class="title">Những điểm mới trong ES6 (Phần 2)</a></p>
+                            <p class="item-date"><time datetime="2016-10-22T09:55:40.000Z" itemprop="datePublished">2016-10-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/at/2016/10/22/javascript-es6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../css/images/thumbnail/es6.jpeg)" alt="Những điểm mới trong ES6 (Phần 1)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/at/categories/memo/">memo</a></p>
+                            <p class="item-title"><a href="/at/2016/10/22/javascript-es6/" class="title">Những điểm mới trong ES6 (Phần 1)</a></p>
+                            <p class="item-date"><time datetime="2016-10-22T03:29:38.000Z" itemprop="datePublished">2016-10-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/at/2016/10/21/guideline-hexo/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/at/categories/guideline/">guideline</a></p>
+                            <p class="item-title"><a href="/at/2016/10/21/guideline-hexo/" class="title">Hướng dẫn viết blog</a></p>
+                            <p class="item-date"><time datetime="2016-10-20T15:20:04.000Z" itemprop="datePublished">2016-10-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/at/2016/10/20/hospitality/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/at/categories/social/">social</a></p>
+                            <p class="item-title"><a href="/at/2016/10/20/hospitality/" class="title">Hospitality</a></p>
+                            <p class="item-date"><time datetime="2016-10-20T14:20:04.000Z" itemprop="datePublished">2016-10-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/at/categories/guideline/">guideline</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/memo/">memo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/social/">social</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/at/archives/2016/10/">October 2016</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/es6/">es6</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/guideline/">guideline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/javascript/">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/soft-skill/">soft-skill</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/at/tags/es6/" style="font-size: 20px;">es6</a> <a href="/at/tags/guideline/" style="font-size: 10px;">guideline</a> <a href="/at/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/at/tags/soft-skill/" style="font-size: 10px;">soft-skill</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 AT Team<br>
+            Powered by <a href="" target="_blank">AT Team</a>. Written by <a href="http://github.com/hieunh161">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://hieunh161.github.io/at/2016/10/22/javascript-es6-2/';
+        
+        this.page.identifier = 'javascript-es6-2';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'atblog-1' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/at/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/at/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/at/vendor/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/at/js/main.js"></script>
+
+    </div>
+</body>
+</html>
