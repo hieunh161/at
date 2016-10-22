@@ -11,10 +11,12 @@
 <meta property="og:url" content="https://hieunh161.github.io/at/2016/10/22/javascript-es6/index.html">
 <meta property="og:site_name" content="AT's Blog">
 <meta property="og:description" content="TranspilersNếu bạn là tín đồ của javascript chắc hẳn bạn phải biết tới đặc tả tiêu chuẩn của javascript là ECMAScript. Hiện nay các phiên bản javascript chúng ta sử dụng hầu hết được viết dựa trên ECM">
-<meta property="og:updated_time" content="2016-10-22T04:22:12.158Z">
+<meta property="og:image" content="https://hieunh161.github.io/at/../../../../css/images/thumbnail/es6.jpeg">
+<meta property="og:updated_time" content="2016-10-22T06:58:33.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Những điểm mới trong ES6 (Phần 1)">
 <meta name="twitter:description" content="TranspilersNếu bạn là tín đồ của javascript chắc hẳn bạn phải biết tới đặc tả tiêu chuẩn của javascript là ECMAScript. Hiện nay các phiên bản javascript chúng ta sử dụng hầu hết được viết dựa trên ECM">
+<meta name="twitter:image" content="https://hieunh161.github.io/at/../../../../css/images/thumbnail/es6.jpeg">
     
 
     
@@ -264,6 +266,30 @@
 <p>Trong trường hợp chúng ta chỉ muốn lấy một giá trị chúng ta sử dụng Destructuring để lấy:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomPonyInRace</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> pony = &#123; <span class="attr">name</span>: <span class="string">'Rainbow Dash'</span> &#125;;</div><div class="line">  <span class="keyword">const</span> position = <span class="number">2</span>;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  <span class="keyword">return</span> &#123; pony, position &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> &#123; pony &#125; = randomPonyInRace();</div></pre></td></tr></table></figure>
 <p>Kết quả chúng ta sẽ chỉ lấy giá trị pony</p>
+<h2 id="Cac-gia-tri-va-tham-so-mac-dinh"><a href="#Cac-gia-tri-va-tham-so-mac-dinh" class="headerlink" title="Các giá trị và tham số mặc định"></a>Các giá trị và tham số mặc định</h2><p>Một trong những đặc điểm nổi bật của javascript là cho phép người dùng gọi hàm với số lượng tham số bất kỳ</p>
+<ul>
+<li>Nếu chúng ta truyền nhiều hơn số lượng tham số khai báo, phần vượt quá sẽ được bỏ qua. Chính sác hơn chúng ta có thể lấy phần tham số thừa thông qua biến đặc biệt là <strong>arguments</strong></li>
+<li>Nếu chúng ta truyền ít hơn tham số khai báo, phần thiếu sẽ có giá trị là <strong>undefined</strong><br>Trong trường hợp thứ 2 thông thường khi muốn thêm mặc định cho biến chúng ta thường làm như sau</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPonies</span>(<span class="params">size, page</span>) </span>&#123;</div><div class="line">  size = size || <span class="number">10</span>;</div><div class="line">  page = page || <span class="number">1</span>;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  server.get(size, page);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ES6 cung cấp cho chúng ta cách làm đơn giản hơn trong trường hợp này</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPonies</span>(<span class="params">size = <span class="number">10</span>, page = <span class="number">1</span></span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  server.get(size, page);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Có một chút khác biệt nhỏ giữa 2 cách. Vì 0 và “” là các giá trị hợp lệ, do đó nó sẽ không được thay thế bởi giá trị mặc định. Trong khi size = size || 10 sẽ lấy giá trị 10 khi truyền size = 0. Trong ES6 cách tính sẽ giống như dùng công thức sau size = size === undefined ? 10: size;</p>
+</blockquote>
+<p>Giá trị mặc định có thể là hàm hoặc có thể là biến khác</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPonies</span>(<span class="params">size = defaultSize(</span>), <span class="title">page</span> = <span class="title">size</span> - 1) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  server.get(size, page);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Chúng ta có thể sử dụng giá trị mặc định cho các việc Destructuring biến như sau:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> &#123; timeout = <span class="number">1000</span> &#125; = httpOptions;</div><div class="line"><span class="comment">// you now have a variable named 'timeout',</span></div><div class="line"><span class="comment">// with the value of 'httpOptions.timeout' if it exists</span></div><div class="line"><span class="comment">// or 1000 if not</span></div></pre></td></tr></table></figure>
+<h2 id="Toan-tu-Rest-…"><a href="#Toan-tu-Rest-…" class="headerlink" title="Toán tử Rest …"></a>Toán tử Rest …</h2><p>Vói javascript chúng ta có thể làm như sau khi truyền nhiều tham số hơn số lượng khai báo.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addPonies</span>(<span class="params">ponies</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</div><div class="line">    poniesInRace.push(<span class="built_in">arguments</span>[i]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">addPonies(<span class="string">'Rainbow Dash'</span>, <span class="string">'Pinkie Pie'</span>);</div></pre></td></tr></table></figure>
+<p>ES6 giới thiệu một cú pháp mới để định nghĩa các biến tham số trong các hàm một cách ngắn gọn hơn đó là toán tử Rest …</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addPonies</span>(<span class="params">...ponies</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> pony <span class="keyword">of</span> ponies) &#123;</div><div class="line">    poniesInRace.push(pony);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ponies giờ sẽ trở thành một mảng có thể loop được bằng cách sử dụng for … of. (Đây cũng là một tính năng mới của ES6). Toán tử Rest được sử dụng để lấy list các tham số truyền vào hàm.<br>Toán tử rest cũng có thể áp dụng khi Destructuring dữ liệu</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> [winner, ...losers] = poniesInRace;</div><div class="line"><span class="comment">// poniesInRace là một mảng chứa nhiều pony</span></div><div class="line"><span class="comment">// 'winner' sẽ chứa pony đầu tiên</span></div><div class="line"><span class="comment">// và 'losers' sẽ là một mảng của các phần tử còn lại</span></div></pre></td></tr></table></figure>
+<h2 id="Toan-tu-Spread-…"><a href="#Toan-tu-Spread-…" class="headerlink" title="Toán tử Spread …"></a>Toán tử Spread …</h2><p>Trong khi Rest sử dụng để cấu thành nhiều biến riêng biệt thành một mảng đơn lẻ, thì spread lại mang ý nghĩa ngược lại là phân tách 1 mảng thành các phần tử riêng lẻ.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> ponyPrices = [<span class="number">12</span>, <span class="number">3</span>, <span class="number">4</span>];</div><div class="line"><span class="keyword">const</span> minPrice = <span class="built_in">Math</span>.min(...ponyPrices);</div></pre></td></tr></table></figure>
+<p>Tobe continued …</p>
 
         
         </div>
@@ -274,7 +300,7 @@
 
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/at/2016/10/22/javascript-es6/" data-id="ciukncv4f000bcop9kdd6ikxd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/at/2016/10/22/javascript-es6/" data-id="ciukpdimm0005wwp9ej324q3u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -391,7 +417,7 @@
                             <a href="/at/2016/10/22/javascript-es6/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(../../../../css/images/thumbnail/es6.jpeg)" alt="Những điểm mới trong ES6 (Phần 1)" class="thumbnail-image"></span>
     
 </a>
 
