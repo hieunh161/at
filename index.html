@@ -147,11 +147,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                12
+                14
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                9
+                12
                 <span>tags</span>
             </div>
         </div>
@@ -182,6 +182,269 @@
 
             
             <section id="main">
+    <article id="post-refactor-sample" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/at/2016/11/03/refactor-sample/">Ví dụ về Refactoring</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/at/2016/11/03/refactor-sample/">
+            <time datetime="2016-11-03T00:32:09.000Z" itemprop="datePublished">2016-11-03</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/at/categories/software/">software</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/at/tags/memo/">memo</a>, <a class="tag-link" href="/at/tags/refactoring/">refactoring</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>Chúng ta bắt đầu với ví dụ:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> vn.com.ndd.payroll;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PayCalculator</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">calculate</span><span class="params">(<span class="keyword">double</span> hours, <span class="keyword">double</span> rate,</div><div class="line">			<span class="keyword">boolean</span> isHourlyWorker)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (hours &lt; <span class="number">0</span> || hours &gt; <span class="number">80</span>) &#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Hours out of range: "</span> + hours);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">float</span> wages = <span class="number">0</span>;</div><div class="line"></div><div class="line">		<span class="keyword">if</span> (hours &gt; <span class="number">40</span>) &#123;</div><div class="line">			<span class="keyword">double</span> overTimeHours = hours - <span class="number">40</span>;</div><div class="line">			<span class="keyword">if</span> (isHourlyWorker) &#123;</div><div class="line">				wages += (overTimeHours * <span class="number">1.5</span>) * rate;</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				wages += overTimeHours * rate;</div><div class="line">			&#125;</div><div class="line">			hours -= overTimeHours;</div><div class="line">		&#125;</div><div class="line">		wages += hours * rate;</div><div class="line">		<span class="keyword">return</span> wages;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+            <p class="article-more-link">
+                <a href="/at/2016/11/03/refactor-sample/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+</div>
+
+    <a data-url="https://hieunh161.github.io/at/2016/11/03/refactor-sample/" data-id="cj04wg4xr000oc0p91di0iio4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://hieunh161.github.io/at/2016/11/03/refactor-sample/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/2016/11/03/refactor-sample/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-clean-architecture" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/at/2016/11/01/clean-architecture/">The Clean Architecture</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/at/2016/11/01/clean-architecture/">
+            <time datetime="2016-11-01T13:08:29.000Z" itemprop="datePublished">2016-11-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/at/categories/memo/">memo</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/at/tags/Architecture/">Architecture</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h2 id="Kien-truc-Clean"><a href="#Kien-truc-Clean" class="headerlink" title="Kiến trúc Clean"></a>Kiến trúc Clean</h2><p>Liên quan tới kiến trúc hệ thống từ trước tới nay có rất nhiều người nghiên cứu và đưa ra rất nhiều kiến trúc khác nhau. Mỗi kiến trúc đều có những nét đặc trưng riêng và có thể áp dụng cho những bài toán cụ thể rất hiệu quả, nhưng khi nhìn về mục đích thì chúng đều có một điểm rất giống nhau đó là những yếu tố khi phân tách hệ thống. Tất cả những kiến trúc đều cố gắng phân chia phần mềm thành các lớp khác nhau. Thông thường ở bất kỳ cấu trúc nào cũng có một lớp cho GUI và một lớp cho business logic. Tổng hợp chung chúng ta có thể thấy các mối quan tâm giải quyết chủ đạo của các kiến trúc đều dưa tới các mục đích sau:<br></p>
+            <p class="article-more-link">
+                <a href="/at/2016/11/01/clean-architecture/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+</div>
+
+    <a data-url="https://hieunh161.github.io/at/2016/11/01/clean-architecture/" data-id="cj04wg4x80006c0p9myp52mf1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://hieunh161.github.io/at/2016/11/01/clean-architecture/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/2016/11/01/clean-architecture/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-overtime-secret" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -236,7 +499,7 @@
 
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/2016/10/24/overtime-secret/" data-id="cj04w6vfi0005cop9332243eo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/2016/10/24/overtime-secret/" data-id="cj04wg4xh000dc0p90gvyzm66" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -368,7 +631,7 @@
 
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/2016/10/22/javascript-es6-2/" data-id="cj04w6vfn0007cop9v5p9ljci" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/2016/10/22/javascript-es6-2/" data-id="cj04wg4xc000bc0p94mu38j61" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -499,7 +762,7 @@
 
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/2016/10/22/javascript-es6/" data-id="cj04w6vfu000dcop9dcdf0sqb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/2016/10/22/javascript-es6/" data-id="cj04wg4x10002c0p9nxn9va47" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -637,7 +900,7 @@
 
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/2016/10/21/guideline-hexo/" data-id="cj04w6vf70000cop9g2183v3h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/2016/10/21/guideline-hexo/" data-id="cj04wg4wu0000c0p9tdhifweg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -768,7 +1031,7 @@
 
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/2016/10/20/hospitality/" data-id="cj04w6vfl0006cop9i6xz31lh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/2016/10/20/hospitality/" data-id="cj04wg4xa0007c0p96l0npvlp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -899,7 +1162,7 @@
 
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/2016/10/20/economy-principle/" data-id="cj04w6vfd0002cop90jecdmoo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/2016/10/20/economy-principle/" data-id="cj04wg4x60005c0p9tb51u6hl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1034,7 +1297,7 @@
 
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/2016/10/19/software-principle-3/" data-id="cj04w6vg4000ocop95owt5739" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/2016/10/19/software-principle-3/" data-id="cj04wg4xy000xc0p9lzclpwgb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1168,7 +1431,7 @@
 
 </div>
 
-    <a data-url="https://hieunh161.github.io/at/2016/10/19/software-principle-2/" data-id="cj04w6vg2000lcop918hnnwxz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://hieunh161.github.io/at/2016/10/19/software-principle-2/" data-id="cj04wg4xw000uc0p9hvsgce59" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1246,269 +1509,6 @@
 
 
 
-    <article id="post-software-principle-1" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/at/2016/10/19/software-principle-1/">Các định luật phần mềm – Phần 1</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/at/2016/10/19/software-principle-1/">
-            <time datetime="2016-10-19T08:44:31.000Z" itemprop="datePublished">2016-10-19</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/at/categories/software/">software</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/at/tags/principle/">principle</a>, <a class="tag-link" href="/at/tags/production/">production</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Trong các lĩnh vực tự nhiên, các nhà khoa học đã tìm ra rất nhiều định luật, quy luật của tự nhiên và đã trở thành những kiến thức nền tảng trong xã hội. Nó giúp chúng ta hiểu rõ, giải thích được các hiện tượng một cách thấu đáo hơn. Trong lĩnh vực phần mềm, dù nó khác so với một lĩnh vực khoa học, song trong thời gian ngắn xuất hiện của mình, nó cũng đã được rất nhiều nhà nghiên cứu tìm ra được những quy luật và họ đã phát biểu thành các định luật mang tên mình. Hiểu rõ được các định luật chi phối trong ngành phần mềm không chỉ giúp chúng ta hiểu hơn công việc mà còn giúp chúng ta thay đổi xử lý các vấn đề tốt hơn.</p></p>
-            <p class="article-more-link">
-                <a href="/at/2016/10/19/software-principle-1/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-</div>
-
-    <a data-url="https://hieunh161.github.io/at/2016/10/19/software-principle-1/" data-id="cj04w6vg8000tcop9lze8frmm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://hieunh161.github.io/at/2016/10/19/software-principle-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/2016/10/19/software-principle-1/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-productivity-3" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/at/2016/10/18/productivity-3/">The mythical men-day (Phần 3)</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/at/2016/10/18/productivity-3/">
-            <time datetime="2016-10-18T05:32:54.000Z" itemprop="datePublished">2016-10-18</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/at/categories/production/">production</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/at/tags/productivity/">productivity</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Cốt lõi của việc tăng hiệu quả sản xuất vẫn là làm thế nào để tăng năng suất lao động. Năng suất lao động là chìa khóa quyết định sự phát triển, bởi vì nếu không thể tăng năng suất lao động có nghĩa là tổ chức của bạn sẽ khó có cơ hội cạnh tranh, khó có cơ hội tăng lợi nhuận, khó có cơ hội đạt được bước nhảy về thu nhập cho nhân viên … Có nhiều công ty chọn cho mình hướng phát triển với việc mở rộng quy mô, mở rộng thị trường. Tất nhiên là việc phát triển mở rộng thị trường nếu thành công là việc phải ưu tiên hàng đầu, thế nhưng nó cũng là những việc gắn liền với quyết định quản trị của các top-manager. Xét trên khía cạnh của  những người lao động thực sự, những người chiếm phần lớn trong công ty thì họ sẽ nhận được rất ít hoặc không được lợi gì từ hoạt động mở rộng đó. Bởi vì nếu năng suất không đổi thì người công nhân không có lý do gì để có thể tăng thu nhập. Một công nhân hôm nay sản xuất 10 sản phẩm, và 1 năm sau vẫn công nhân đấy vẫn 10 sản phẩm đấy thì chắc chắn rằng anh ta vẫn sẽ chỉ nhận được số tiền lương giống 1 năm trước. Vậy có thể hiểu định tính rằng, năng suất và giá trị trung bình sẽ là một đại lượng tỉ lệ với nhau. Thông thường nó không phải là một hàm tuyến tính mà nó sẽ là một tỉ lệ cao hơn thậm chí là hàm số mũ vì các ảnh hưởng của năng suất lên khả năng bán hàng, khả năng cạnh tranh của doanh nghiệp. Tuy nhiên để dễ hiểu chúng ta cứ hình dung nó tương tự như dưới đây.</p>
-<p><img src="https://c2.staticflickr.com/6/5618/30417215951_b45b50705b_b.jpg" alt=""></p></p>
-            <p class="article-more-link">
-                <a href="/at/2016/10/18/productivity-3/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-</div>
-
-    <a data-url="https://hieunh161.github.io/at/2016/10/18/productivity-3/" data-id="cj04w6vfz000hcop9r0c2jsh7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://hieunh161.github.io/at/2016/10/18/productivity-3/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://hieunh161.github.io/at/2016/10/18/productivity-3/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/at/page/2/">2</a><a class="extend next" rel="next" href="/at/page/2/">Next &raquo;</a>
     </nav>
@@ -1521,6 +1521,44 @@
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/at/2016/11/03/refactor-sample/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/at/categories/software/">software</a></p>
+                            <p class="item-title"><a href="/at/2016/11/03/refactor-sample/" class="title">Ví dụ về Refactoring</a></p>
+                            <p class="item-date"><time datetime="2016-11-03T00:32:09.000Z" itemprop="datePublished">2016-11-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/at/2016/11/01/clean-architecture/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/at/categories/memo/">memo</a></p>
+                            <p class="item-title"><a href="/at/2016/11/01/clean-architecture/" class="title">The Clean Architecture</a></p>
+                            <p class="item-date"><time datetime="2016-11-01T13:08:29.000Z" itemprop="datePublished">2016-11-01</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1579,44 +1617,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/at/2016/10/21/guideline-hexo/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/at/categories/guideline/">guideline</a></p>
-                            <p class="item-title"><a href="/at/2016/10/21/guideline-hexo/" class="title">Hướng dẫn viết blog</a></p>
-                            <p class="item-date"><time datetime="2016-10-20T15:20:04.000Z" itemprop="datePublished">2016-10-21</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/at/2016/10/20/hospitality/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/at/categories/social/">social</a></p>
-                            <p class="item-title"><a href="/at/2016/10/20/hospitality/" class="title">Hospitality</a></p>
-                            <p class="item-date"><time datetime="2016-10-20T14:20:04.000Z" itemprop="datePublished">2016-10-20</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1626,7 +1626,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/at/categories/guideline/">guideline</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/memo/">memo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/production/">production</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/social/">social</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/software/">software</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/at/categories/guideline/">guideline</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/memo/">memo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/production/">production</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/social/">social</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/at/categories/software/">software</a><span class="category-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -1635,7 +1635,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/at/archives/2016/10/">October 2016</a><span class="archive-list-count">12</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/at/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/at/archives/2016/10/">October 2016</a><span class="archive-list-count">12</span></li></ul>
         </div>
     </div>
 
@@ -1644,7 +1644,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/economy/">economy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/es6/">es6</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/guideline/">guideline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/javascript/">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/principle/">principle</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/production/">production</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/productivity/">productivity</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/social/">social</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/soft-skill/">soft-skill</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/Architecture/">Architecture</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/economy/">economy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/es6/">es6</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/guideline/">guideline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/javascript/">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/memo/">memo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/principle/">principle</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/production/">production</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/productivity/">productivity</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/refactoring/">refactoring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/social/">social</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/at/tags/soft-skill/">soft-skill</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1653,7 +1653,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/at/tags/economy/" style="font-size: 10px;">economy</a> <a href="/at/tags/es6/" style="font-size: 13.33px;">es6</a> <a href="/at/tags/guideline/" style="font-size: 10px;">guideline</a> <a href="/at/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/at/tags/principle/" style="font-size: 16.67px;">principle</a> <a href="/at/tags/production/" style="font-size: 16.67px;">production</a> <a href="/at/tags/productivity/" style="font-size: 20px;">productivity</a> <a href="/at/tags/social/" style="font-size: 10px;">social</a> <a href="/at/tags/soft-skill/" style="font-size: 10px;">soft-skill</a>
+            <a href="/at/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/at/tags/economy/" style="font-size: 10px;">economy</a> <a href="/at/tags/es6/" style="font-size: 13.33px;">es6</a> <a href="/at/tags/guideline/" style="font-size: 10px;">guideline</a> <a href="/at/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/at/tags/memo/" style="font-size: 10px;">memo</a> <a href="/at/tags/principle/" style="font-size: 16.67px;">principle</a> <a href="/at/tags/production/" style="font-size: 16.67px;">production</a> <a href="/at/tags/productivity/" style="font-size: 20px;">productivity</a> <a href="/at/tags/refactoring/" style="font-size: 10px;">refactoring</a> <a href="/at/tags/social/" style="font-size: 10px;">social</a> <a href="/at/tags/soft-skill/" style="font-size: 10px;">soft-skill</a>
         </div>
     </div>
 
